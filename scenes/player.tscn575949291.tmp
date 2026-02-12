@@ -1,15 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnunnppmtvhkf"]
+[gd_scene load_steps=4 format=3 uid="uid://cnunnppmtvhkf"]
 
 [ext_resource type="Texture2D" uid="uid://cmlxqrf7sj5cu" path="res://assets/icon.svg" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://b1mjqu6agemro" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="PackedScene" uid="uid://q0nqj0rrkplw" path="res://scenes/fireball.tscn" id="2_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(126, 126)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_g2els")
-fireball_scene = ExtResource("2_qhqgy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3vyb7")
@@ -17,10 +15,8 @@ texture = ExtResource("1_3vyb7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_g2els")
 
-[node name="DirectionLine" type="Line2D" parent="."]
-z_index = 10
-width = 4.0
-default_color = Color(0.202638, 0.845309, 3.85046e-07, 1)
-
 [node name="SpellSpawnPoint" type="Marker2D" parent="."]
-position = Vector2(64, 0)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="."]

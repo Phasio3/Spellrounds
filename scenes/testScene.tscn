@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdqfg5ctxjrgx"]
+[gd_scene load_steps=5 format=3 uid="uid://cdqfg5ctxjrgx"]
 
 [ext_resource type="PackedScene" uid="uid://cnunnppmtvhkf" path="res://scenes/player.tscn" id="1_4lyoc"]
+[ext_resource type="Script" uid="uid://cylvme8bhaj7t" path="res://scripts/Manager/testManager.gd" id="1_sj726"]
 [ext_resource type="PackedScene" uid="uid://cdev34hgwh530" path="res://scenes/dummy.tscn" id="2_i052m"]
+[ext_resource type="PackedScene" uid="uid://bgk5aodghwb4b" path="res://scenes/UI/spellBar.tscn" id="3_3sglg"]
 
 [node name="Scène Test" type="Node2D"]
+script = ExtResource("1_sj726")
 
 [node name="Player" parent="." instance=ExtResource("1_4lyoc")]
 position = Vector2(181, 368)
+spell_bar_path = NodePath("../CanvasLayer")
 
 [node name="dummy" parent="." instance=ExtResource("2_i052m")]
 position = Vector2(930, 359)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_3sglg")]

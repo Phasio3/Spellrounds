@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://dle5nak8jeblj"]
+
+[ext_resource type="Texture2D" uid="uid://cmlxqrf7sj5cu" path="res://assets/icon.svg" id="1_7sdfe"]
+[ext_resource type="Script" uid="uid://di2ykrxxn0j56" path="res://scripts/spellSlot.gd" id="1_iolcj"]
+
+[node name="SpellSlot" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_iolcj")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -50.0
+offset_right = 25.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_7sdfe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="KeyLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -50.0
+offset_right = 25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="CooldownOverlay" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -50.0
+offset_right = 25.0
+grow_horizontal = 2
+grow_vertical = 0
+tint_progress = Color(0, 0, 0, 0.490196)
+
+[node name="CooldownText" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -50.0
+offset_right = 25.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "5s"
+horizontal_alignment = 1
+vertical_alignment = 1

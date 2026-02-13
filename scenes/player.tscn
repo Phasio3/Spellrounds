@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cmlxqrf7sj5cu" path="res://assets/icon.svg" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://b1mjqu6agemro" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="PackedScene" uid="uid://q0nqj0rrkplw" path="res://scenes/fireball.tscn" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://q0nqj0rrkplw" path="res://scenes/Spells/fireball.tscn" id="2_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(126, 126)
@@ -20,7 +20,7 @@ scale = Vector2(4.21372, 0.179688)
 texture = ExtResource("1_3vyb7")
 offset = Vector2(-64.0029, 0.276845)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PlayerSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_3vyb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

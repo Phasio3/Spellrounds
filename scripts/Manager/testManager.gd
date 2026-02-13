@@ -4,17 +4,16 @@ extends Node2D
 
 func _ready():
 	var texture: Texture2D = load("res://assets/icon.svg")
-	test_set_spell(texture)
+	var spn: String = "Fireball"
+	test_set_spell(spn, texture)
 
-func test_set_spell(texture: Texture2D):
+func test_set_spell(spn: String, texture: Texture2D):
 	if spell_bar_manager:
-		var key = "A"
 		var cooldown = 5.0
 		var index = 0
-		spell_bar_manager.set_spell(index, texture, key, cooldown)
-		key = "Z"
+		spell_bar_manager.set_spell(spn, index, texture, cooldown)
 		cooldown = 10.0
-		index = 1
-		spell_bar_manager.set_spell(index, texture, key, cooldown)
+		index = 3
+		spell_bar_manager.set_spell("SnowBall", index, texture, cooldown)
 	else:
 		print("SpellBarManager non assigné !")

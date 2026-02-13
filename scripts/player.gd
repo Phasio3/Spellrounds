@@ -10,6 +10,7 @@ var is_holding_spell: bool = false
 var spell_target_position: Vector2
 var spell_keys = ["spell_a", "spell_z", "spell_e", "spell_r", "spell_q", "spell_s", "spell_d", "spell_f"]
 
+var spells: Dictionary = {}
 var selected_spell_index: int = -1
 
 @onready var direction_line: Line2D = $DirectionLine
@@ -21,7 +22,25 @@ var selected_spell_index: int = -1
 func _ready():
 	target_position = global_position
 	direction_line.visible = false
+	_load_spells_from_json("res://data/spells.json")
 
+func _load_spells_from_json(path: String) -> void:
+	var file = FileAccess.open(path, FileAccess.READ)
+	if file == null:
+		push_error("Impossible d'ouvrir le fichier spells.json")
+		return
+
+	var data = JSON.parse_string(file.get_as_text())
+	if data == null:
+		push_error("Erreur de parsing du JSON")
+		return
+	
+	for entry in data:
+		spells[entry["name"]] = {
+			"scene": load(entry["scene_path"]),
+			"indicator_texture": load(entry["indicator_texture_path"]),
+			"cast_func": Callable(self, entry["cast_func"])
+		}
 
 func _process(_delta):
 	var mouse_position = get_global_mouse_position()
@@ -54,6 +73,7 @@ func _input(event):
 	# --- Confirmation du cast ---
 	if spell_bar.get_cooldown_remaining(selected_spell_index) <= 0.0:
 		if event.is_action_pressed("spell_cast") and is_holding_spell:
+			print("Spell ", spell_bar.get_spell_name(selected_spell_index), " a été lancé.")
 			cast_spell(selected_spell_index)
 			is_holding_spell = false
 			spell_indicator.visible = false
@@ -61,9 +81,17 @@ func _input(event):
 
 
 func select_spell(index: int):
+	var spell_name = spell_bar.get_spell_name(index)
+	if (spell_name == "") or (spell_name not in spells):
+		return
+	
 	selected_spell_index = index
 	is_holding_spell = true
 	spell_indicator.visible = true
+	
+	# Changer le sprite de l'indicateur en fonction du spell
+	if spells[spell_name].has("indicator_texture"):
+		spell_indicator.texture = spells[spell_name]["indicator_texture"]
 
 func deselect_spell():
 	selected_spell_index = -1
@@ -72,15 +100,18 @@ func deselect_spell():
 
 
 func cast_spell(index: int):
-	if index < 0:
+	var spell_name = spell_bar.get_spell_name(index)
+	if (spell_name == "") or (spell_name not in spells):
 		return
+
+	var spell = spells[spell_name]
 	
-	match index:
-		0:
-			cast_fireball()
-		_:
-			print("Spell non implémenté :", index)
-	
+	# Appel de la fonction de cast spécifique
+	if spell.has("cast_func"):
+		spell["cast_func"].call()
+	else:
+		print("Pas de fonction de cast pour :", spell.get("name", "Unknown"))
+
 	spell_bar.trigger_spell(index)
 
 

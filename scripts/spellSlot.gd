@@ -3,16 +3,19 @@ extends Control
 @onready var icon = $Icon
 @onready var cooldown_overlay = $CooldownOverlay
 @onready var cooldown_text = $CooldownText
+@onready var key = ""
 
 var cooldown_max : float = 0.0
 var cooldown_remaining : float = 0.0
+var spell_name = ""
 
 
 func _ready():
 	custom_minimum_size = Vector2(50, 50)
 
 
-func set_spell(texture: Texture2D, key: String, cooldown: float):
+func set_spell(spn: String, texture: Texture2D, cooldown: float):
+	spell_name = spn
 	icon.texture = texture
 	$KeyLabel.text = key
 	cooldown_max = cooldown
@@ -20,6 +23,8 @@ func set_spell(texture: Texture2D, key: String, cooldown: float):
 	cooldown_overlay.value = 0
 	cooldown_text.visible = false
 
+func get_spell_name():
+	return spell_name
 
 func trigger_cooldown():
 	cooldown_remaining = cooldown_max

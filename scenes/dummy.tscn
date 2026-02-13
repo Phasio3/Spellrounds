@@ -16,10 +16,9 @@ texture = ExtResource("1_kre8v")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_k5f3b")
 
-[node name="HealthBar" type="TextureProgressBar" parent="."]
-offset_left = -82.0
-offset_top = -110.0
-offset_right = -42.0
-offset_bottom = -70.0
-scale = Vector2(4.36, 1)
-tint_progress = Color(0.969084, 0, 0.375546, 1)
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -64.0
+offset_top = -101.0
+offset_right = 64.0
+offset_bottom = 27.0
+scale = Vector2(0.999999, 0.199999)

@@ -4,13 +4,13 @@ extends Area2D
 var current_hp: int
 
 # Pour la barre de vie
-@onready var health_bar: TextureProgressBar = $HealthBar
+@onready var health_bar: ProgressBar = $HealthBar
 
 func _ready():
 	current_hp = max_hp
 	# Créons la barre si elle n'existe pas déjà
 	if not health_bar:
-		health_bar = TextureProgressBar.new()
+		health_bar = ProgressBar.new()
 		add_child(health_bar)
 		health_bar.position = Vector2(0, -40)  # au-dessus de la tête
 		health_bar.min_value = 0

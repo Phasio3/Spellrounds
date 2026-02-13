@@ -11,6 +11,15 @@ size = Vector2(126, 126)
 script = ExtResource("1_g2els")
 fireball_scene = ExtResource("2_qhqgy")
 
+[node name="SpellIndicator" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.72549, 0.427451, 0.262745, 0.482353)
+position = Vector2(-0.001369, -6.08182e-09)
+rotation = -3.14159
+scale = Vector2(4.21372, 0.179688)
+texture = ExtResource("1_3vyb7")
+offset = Vector2(-64.0029, 0.276845)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3vyb7")
 

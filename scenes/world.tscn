@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtk37hfg5bng1"]
+
+[ext_resource type="Script" uid="uid://0tolys0sxsb3" path="res://scripts/Manager/world.gd" id="1_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://cnunnppmtvhkf" path="res://scenes/player.tscn" id="2_71j4m"]
+[ext_resource type="Script" uid="uid://cdxh33mwkse4" path="res://scripts/Manager/cameraManager.gd" id="2_k0juu"]
+[ext_resource type="PackedScene" uid="uid://bgk5aodghwb4b" path="res://scenes/UI/spellBar.tscn" id="3_71j4m"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_4wyf3")
+player_scene = ExtResource("2_71j4m")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_k0juu")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_71j4m")]

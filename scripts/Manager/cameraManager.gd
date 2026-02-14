@@ -132,6 +132,7 @@ func _handle_middle_mouse_pan() -> void:
 # ─────────────────────────────────────────
 
 func _handle_edge_pan(delta: float) -> void:
+	return
 	var mouse_pos: Vector2 = get_viewport().get_mouse_position()
 	var screen_size: Vector2 = get_viewport_rect().size
 	var direction: Vector2 = Vector2.ZERO

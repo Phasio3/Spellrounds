@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlo0hxngwgqrl"]
+
+[ext_resource type="Script" uid="uid://cpe3cynxkbxk2" path="res://scripts/UI/lobby.gd" id="1_jasru"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_jasru")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -250.0
+offset_right = 200.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "SPELLROUNDS"
+horizontal_alignment = 1
+
+[node name="NameInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Ton nom"
+alignment = 1
+
+[node name="IPInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+placeholder_text = "127.0.0.1"
+alignment = 1
+
+[node name="HostButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Héberger"
+
+[node name="JoinButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Rejoindre"
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Lancer la partie"
+
+[node name="StatusLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="PlayersList" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2

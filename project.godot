@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Spellrounds"
-run/main_scene="uid://cdqfg5ctxjrgx"
+run/main_scene="uid://dlo0hxngwgqrl"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://assets/icon.svg"
+
+[autoload]
+
+NetworkManager="*res://scripts/Manager/network_manager.gd"
 
 [display]
 

@@ -11,11 +11,17 @@ func _ready():
 	connect("area_entered", Callable(self, "_on_area_entered"))
 	await get_tree().create_timer(lifetime).timeout
 	queue_free()
+# Variable pour stocker le peer_id du propriétaire
+var owner_peer_id: int = -1
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.has_method("take_damage"):
-		area.take_damage(damage)
-		queue_free()  # la fireball disparaît après le hit
+	var player = area.get_parent()
+	
+	# Vérifie que le joueur touché n'est pas le propriétaire
+	if player.has_method("take_damage") and player.has_method("get_multiplayer_authority"):
+		if player.get_multiplayer_authority() != owner_peer_id:
+			player.take_damage(damage)
+			queue_free()
 
 func _physics_process(delta):
 	position += direction * speed * delta

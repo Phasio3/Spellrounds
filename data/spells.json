@@ -3,6 +3,6 @@
 	"name": "Fireball",
 	"scene_path": "res://scenes/spells/fireball.tscn",
 	"indicator_texture_path": "res://assets/spell_indicators/fireball.svg",
-	"cast_func": "cast_fireball"
+	"cast_func": "cast_projectile"
   }
 ]

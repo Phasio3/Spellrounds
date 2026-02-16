@@ -11,7 +11,6 @@ script = ExtResource("1_sj726")
 
 [node name="Player" parent="." instance=ExtResource("1_4lyoc")]
 position = Vector2(181, 368)
-spell_bar_path = NodePath("../CanvasLayer")
 
 [node name="dummy" parent="." instance=ExtResource("2_i052m")]
 position = Vector2(930, 359)
